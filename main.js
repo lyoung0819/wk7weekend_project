@@ -28,11 +28,13 @@ function findCountry(e){
 // Callback function for findCountry that will accept country data and insert into the display on the webpage
 function displayCountry(data){
     // grab each area from the HTML
+    let img = document.getElementById('flagimg')
     let cname = document.getElementById('cname')
     let currency = document.getElementById('curr')
     let language = document.getElementById('lang')
     let capital = document.getElementById('capcity')
     //clear data
+    img.src = '';
     cname.innerHTML = '';
     currency.innerHTML = '';
     language.innerHTML = '';
@@ -46,9 +48,10 @@ function displayCountry(data){
     
 
     for (let countryInfo of data){
+        changeImg(img, countryInfo.flags.png)
         newDataCell(cname, countryInfo.name.common)
-        newDataCell(currency, `${countryInfo.name.common}'s currency is ${countryInfo.currencies}`)
-        newDataCell(language, `The people who live in ${countryInfo.name.common} speak ${countryInfo.languages}`)
+        newDataCell(currency, `${countryInfo.name.common}'s currency is ${countryInfo.currencies}`) // need to access a changing property's value
+        newDataCell(language, `The people who live in ${countryInfo.name.common} speak ${countryInfo.languages}`) // need to access a changing property's value
         newDataCell(capital, `The capital city of ${countryInfo.name.common} is ${countryInfo.capital}`)
     }
 }
@@ -56,4 +59,8 @@ function displayCountry(data){
 // helper function 
 function newDataCell(element, value){
     element.innerHTML = value ?? '-'
+ }
+
+ function changeImg(element, value){
+    element.src = `${value}`
  }
