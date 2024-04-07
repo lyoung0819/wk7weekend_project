@@ -1,0 +1,25 @@
+
+
+body {
+    background-color:cornflowerblue;
+}
+
+.header {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    color: whitesmoke;
+}
+
+.input {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.output {
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
