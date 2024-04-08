@@ -25,6 +25,7 @@ function findCountry(e){
 
 }
 
+
 // Callback function for findCountry that will accept country data and insert into the display on the webpage
 function displayCountry(data){
     // grab each area from the HTML
@@ -48,10 +49,14 @@ function displayCountry(data){
     
 
     for (let countryInfo of data){
+        let langs = Object.entries(countryInfo.languages)
+        lpairs = langs.map(([key, val]) => `${val}`)
+        // let curr = Object.entries(countryInfo.currencies)
+        // cpairs = curr.map(([key, val]) => `${val}`)
         changeImg(img, countryInfo.flags.png)
         newDataCell(cname, countryInfo.name.common)
-        newDataCell(currency, `${countryInfo.name.common}'s currency is ${countryInfo.currencies}`) // need to access a changing property's value
-        newDataCell(language, `The people who live in ${countryInfo.name.common} speak ${countryInfo.languages}`) // need to access a changing property's value
+        newDataCell(currency, `${countryInfo.name.common}'s currency is ${cpairs}`) // need to access a changing property's value
+        newDataCell(language, `The people who live in ${countryInfo.name.common} speak ${lpairs}`) // need to access a changing property's value
         newDataCell(capital, `The capital city of ${countryInfo.name.common} is ${countryInfo.capital}`)
     }
 }
@@ -64,3 +69,17 @@ function newDataCell(element, value){
  function changeImg(element, value){
     element.src = `${value}`
  }
+
+ // Trying to find a way to get the languages
+
+//  let user ={
+//     name : "Balaji",
+//     age : 23,
+// };
+// let entries = Object.entries(user)
+// console.log(entries)
+
+// let data = entries.map( ([key, val] = entry) => {
+//   return `The ${key} is ${val}`;
+// });
+// console.log(data); //  ["The name is Balaji", "The age is 23"]
