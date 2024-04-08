@@ -51,11 +51,11 @@ function displayCountry(data){
     for (let countryInfo of data){
         let langs = Object.entries(countryInfo.languages)
         lpairs = langs.map(([key, val]) => `${val}`)
-        // let curr = Object.entries(countryInfo.currencies)
-        // cpairs = curr.map(([key, val]) => `${val}`)
+        let curr = Object.entries(countryInfo.currencies)
+        cpairs = curr.map(([key, val]) => `${val.name}`)
         changeImg(img, countryInfo.flags.png)
         newDataCell(cname, countryInfo.name.common)
-        newDataCell(currency, `${countryInfo.name.common}'s currency is ${cpairs}`) // need to access a changing property's value
+        newDataCell(currency, `${countryInfo.name.common}'s currency is the ${cpairs}`) // need to access a changing property's value
         newDataCell(language, `The people who live in ${countryInfo.name.common} speak ${lpairs}`) // need to access a changing property's value
         newDataCell(capital, `The capital city of ${countryInfo.name.common} is ${countryInfo.capital}`)
     }
