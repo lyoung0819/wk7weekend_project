@@ -1,19 +1,19 @@
 
 
 body {
-    background-color:cornflowerblue;
+    background-image: url(./worldmap.jpeg);
 }
 
 .header {
     text-align: center;
     margin-top: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     color: whitesmoke;
 }
 
 .input {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .output {
@@ -23,3 +23,7 @@ body {
     justify-content: center;
 }
 
+#flagimg {
+    height: 15rem;
+    width: auto;
+}
